@@ -16,7 +16,9 @@ export const TypedTerminal: React.FunctionComponent<{
 
 export const TerminalLine: React.FunctionComponent<{
   skill: { summary: string; extras: string[] };
+  // TODO update this to be a display parameter
   show: boolean;
+  // Change this to be an onSchreen parameter
   isVisible: boolean;
   onCompleteFunc: any;
   delay: number;
@@ -25,6 +27,21 @@ export const TerminalLine: React.FunctionComponent<{
   const targetEl = React.useRef(null);
   // Create reference to store the Typed instance itself
   const typed = React.useRef(null);
+
+  const showPromptText = (show: boolean) => (show ? "" : "none");
+
+  // TODO this may be to specific for the example
+  const buildTypedOutput = (
+    summary: string,
+    extras: string[],
+    delay: number
+  ) => {
+    let cmd = `${summary}`;
+    extras.map((str) => {
+      cmd += `^${delay}\n    \`${str}\``;
+    });
+    return cmd;
+  };
 
   React.useEffect(() => {
     if (props.show) {
@@ -42,9 +59,8 @@ export const TerminalLine: React.FunctionComponent<{
         showCursor: false,
       };
 
-      if (typed.current) {
-
-      } else {
+      // TODO try and cleanup this more
+      if (!typed.current) {
         // elRef refers to the <span> rendered below
         (typed.current as unknown as Typed) = new Typed(
           targetEl.current as unknown as Element,
@@ -73,6 +89,7 @@ export const TerminalLine: React.FunctionComponent<{
     }
   }, [props.isVisible]);
 
+  // TODO make the prompt configurable
   return (
     <div style={{ paddingBottom: "0.5rem" }}>
       <span style={{ color: "#ff00df", display: showPromptText(props.show) }}>
@@ -81,14 +98,4 @@ export const TerminalLine: React.FunctionComponent<{
       <span style={{ whiteSpace: "pre" }} ref={targetEl} />
     </div>
   );
-};
-
-const showPromptText = (show: boolean) => (show ? "" : "none");
-
-const buildTypedOutput = (summary: string, extras: string[], delay: number) => {
-  let cmd = `${summary}`;
-  extras.map((str) => {
-    cmd += `^${delay}\n    \`${str}\``;
-  });
-  return cmd;
 };
