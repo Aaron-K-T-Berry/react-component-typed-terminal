@@ -1,0 +1,32 @@
+.TerminalWrapper {
+  max-width: 1000px;
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 30%) 5px 5px 30px;
+  clear: both;
+  overflow: auto;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.TerminalTitle {
+  padding: 5px 0;
+  font-size: 0.75em;
+  text-align: center;
+  background-color: #eeeeee;
+  border-bottom: #e0e0e0 1px solid;
+}
+
+.TerminalBody {
+  padding: 5px 10px;
+  height: 350px;
+  overflow-y: auto;
+  word-break: normal;
+  background-color: #3a3a3a;
+  color: #fff;
+}
