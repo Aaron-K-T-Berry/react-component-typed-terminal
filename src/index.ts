@@ -1,1 +1,1 @@
-export { TypedTerminal } from "./TypedTerminal";
+export { TypedTerminal, TerminalLine } from "./TypedTerminal";

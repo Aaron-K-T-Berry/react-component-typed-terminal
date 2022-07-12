@@ -30,3 +30,11 @@
   background-color: #3a3a3a;
   color: #fff;
 }
+
+.TerminalLine {
+  padding-bottom: 0.5rem;
+}
+
+.TerminalPrompt {
+  color: "#ff00df";
+}

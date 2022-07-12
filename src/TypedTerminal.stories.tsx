@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
-import { TypedTerminal, TerminalLine } from "./TypedTerminal";
+import { TypedTerminal } from "./TypedTerminal";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -11,66 +10,65 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof TypedTerminal>;
 
-const terminalData = {
-  skills: [
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+const Template: ComponentStory<typeof TypedTerminal> = (args) => {
+  return <TypedTerminal {...args} />;
+};
+
+const sharedArgs = {
+  title: "Typed Terminal",
+  promptText: "user@local:~$",
+  typedJsProps: {},
+};
+
+export const Basic = Template.bind({});
+Basic.args = {
+  ...sharedArgs,
+  terminalData: [
     {
-      summary: "Modern full stack web development",
-      extras: [
-        "✅ Latest Javascript, Typescript and ReactJs practices",
-        "✅ Testing for a maintainable and scalable codebase",
-        "✅ Building internal and public solutions",
-      ],
-    },
-    {
-      summary: "Developing scalable data engineering pipelines ",
-      extras: [
-        "✅ Developing containerized Airflow environments",
-        "✅ Developing Airflow operators and plugins for custom integrations",
-        "✅ Scalable data warehouse object management with DBT and Liquidbase",
-      ],
-    },
-    {
-      summary: "Building scalable and automated devops solutions",
-      extras: [
-        "✅ Scalable applications and deployments containers",
-        "✅ Implementing infrastructure as code with ansible and terraform",
-        "✅ Building CICD infrastructure on Jenkins and Github Actions",
-      ],
+      command: "ls -a ./folder-1",
+      results: ["file 1", "file 2", "file 3", "file 4"],
     },
   ],
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof TypedTerminal> = (args) => {
-  const [animationState, setAnimationState] = React.useState(
-    terminalData.skills.map((skill, index) => (index == 0 ? true : false))
-  );
-
-  return (
-    <TypedTerminal {...args}>
-      {terminalData.skills.map((skill, index) => {
-        return (
-          <TerminalLine
-            key={`${skill}-${index}`}
-            skill={skill}
-            show={animationState[index]}
-            isVisible={true}
-            onCompleteFunc={() => {
-              let currentState = [...animationState];
-              currentState[index + 1] = true;
-              setAnimationState(currentState);
-            }}
-            delay={1500}
-          />
-        );
-      })}
-    </TypedTerminal>
-  );
+export const MultipleCommands = Template.bind({});
+MultipleCommands.args = {
+  ...sharedArgs,
+  terminalData: [
+    {
+      command: "ls -a ./folder-1",
+      results: ["file 1", "file 2"],
+    },
+    {
+      command: "ls -a ./folder-2",
+      results: ["file 1", "file 2"],
+    },
+    {
+      command: "ls -a ./folder-3",
+      results: ["file 1", "file 2"],
+    },
+    {
+      command: "ls -a ./folder-4",
+      results: ["file 1", "file 2"],
+    },
+  ],
 };
 
-export const Primary = Template.bind({});
-
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  title: "Some terminal title",
+export const TypedFormatting = Template.bind({});
+TypedFormatting.args = {
+  ...sharedArgs,
+  terminalData: [
+    {
+      command: "ls -a ./slow-folder",
+      results: [
+        "^50file 1",
+        "^100file 2",
+        "^200file 3",
+        "^400file 4",
+        "^800file 5",
+        "^1600file 6",
+      ],
+    },
+  ],
 };
