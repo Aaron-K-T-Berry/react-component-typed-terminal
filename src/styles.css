@@ -33,6 +33,7 @@
 
 .TerminalLine {
   padding-bottom: 0.5rem;
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
 }
 
 .TerminalPrompt {

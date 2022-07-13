@@ -1,6 +1,7 @@
 import * as React from "react";
+
 import Typed, { TypedOptions } from "typed.js";
-import "./TypedTerminal.css";
+import "./styles.css";
 
 export const TypedTerminal: React.FunctionComponent<{
   title: string;
@@ -25,21 +26,19 @@ export const TypedTerminal: React.FunctionComponent<{
               key={generateKey()}
               hidden={!animationState[index]}
               promptText={props.promptText}
-              command={item.command}
-              results={item.results}
               typedJsProps={{
                 // Combine the command and results into a single string separated
                 // by new lines to get the effect of some terminal output
                 strings: [item.command + "\n" + item.results.join("\n")],
-                loop: false,
-                typeSpeed: 40,
-                showCursor: false,
                 // When the line has completed its animation progress to the next one
                 onComplete: () => {
                   let currentState = [...animationState];
                   currentState[index + 1] = true;
                   setAnimationState(currentState);
                 },
+                loop: false,
+                typeSpeed: 40,
+                showCursor: false,
                 ...props.typedJsProps,
               }}
             />
@@ -53,14 +52,14 @@ export const TypedTerminal: React.FunctionComponent<{
 TypedTerminal.defaultProps = {
   title: "Typed Terminal",
   terminalData: [],
-  promptText: "user@local:~$",
+  promptText: "user@local:~ $",
   typedJsProps: {},
 };
 
+export default TypedTerminal;
+
 export const TerminalLine: React.FunctionComponent<{
   promptText: string;
-  command: string;
-  results: string[];
   hidden?: boolean;
   typedJsProps?: TypedOptions | {};
 }> = (props) => {

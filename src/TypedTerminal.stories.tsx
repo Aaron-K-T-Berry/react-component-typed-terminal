@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { TypedTerminal } from "./TypedTerminal";
+import { TypedTerminal } from ".";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof TypedTerminal> = (args) => {
 
 const sharedArgs = {
   title: "Typed Terminal",
-  promptText: "user@local:~$",
+  promptText: "user@local:~ $",
   typedJsProps: {},
 };
 
@@ -37,19 +37,19 @@ MultipleCommands.args = {
   ...sharedArgs,
   terminalData: [
     {
-      command: "ls -a ./folder-1",
+      command: "^200ls -a ./folder-1",
       results: ["file 1", "file 2"],
     },
     {
-      command: "ls -a ./folder-2",
+      command: "^200ls -a ./folder-2",
       results: ["file 1", "file 2"],
     },
     {
-      command: "ls -a ./folder-3",
+      command: "^200ls -a ./folder-3",
       results: ["file 1", "file 2"],
     },
     {
-      command: "ls -a ./folder-4",
+      command: "^200ls -a ./folder-4",
       results: ["file 1", "file 2"],
     },
   ],
@@ -60,7 +60,7 @@ TypedFormatting.args = {
   ...sharedArgs,
   terminalData: [
     {
-      command: "ls -a ./slow-folder",
+      command: "^100ls -a ./slow-folder",
       results: [
         "^50file 1",
         "^100file 2",
