@@ -36,5 +36,9 @@
 }
 
 .TerminalPrompt {
-  color: "#ff00df";
+  color: #ff00df;
+}
+
+.TerminalResults {
+  white-space: pre;
 }

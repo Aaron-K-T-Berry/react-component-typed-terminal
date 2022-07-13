@@ -54,13 +54,14 @@ TypedTerminal.defaultProps = {
   title: "Typed Terminal",
   terminalData: [],
   promptText: "user@local:~$",
+  typedJsProps: {},
 };
 
 export const TerminalLine: React.FunctionComponent<{
+  promptText: string;
   command: string;
   results: string[];
-  hidden: boolean;
-  promptText: string;
+  hidden?: boolean;
   typedJsProps?: TypedOptions | {};
 }> = (props) => {
   // Create reference to store the DOM element containing the animation
@@ -70,7 +71,6 @@ export const TerminalLine: React.FunctionComponent<{
 
   React.useEffect(() => {
     if (!props.hidden) {
-      // TODO try and cleanup this more
       if (!typed.current) {
         // elRef refers to the <span> rendered below
         (typed.current as unknown as Typed) = new Typed(
@@ -89,12 +89,11 @@ export const TerminalLine: React.FunctionComponent<{
   }, [props.hidden]);
 
   return (
-    // TODO fix this styling
     <div className={"TerminalLine"}>
       <span className={"TerminalPrompt"} hidden={props.hidden}>
         {props.promptText + " "}
       </span>
-      <span style={{ whiteSpace: "pre" }} ref={targetEl} />
+      <span className={"TerminalResults"} ref={targetEl} />
     </div>
   );
 };
