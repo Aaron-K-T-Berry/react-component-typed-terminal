@@ -5,7 +5,7 @@
   "repository": "https://github.com/Aaron-K-T-Berry/react-component-typed-terminal.git",
   "author": "Aaron-K-T-Berry <aaron.abm@gmail.com>",
   "license": "MIT",
-  "homepage": "http://Aaron-K-T-Berry/react-component-typed-terminal",
+  "homepage": "https://aaron-k-t-berry.github.io/react-component-typed-termainl/",
   "scripts": {
     "clean": "rm -rf dist",
     "build": "yarn run clean && tsc && cp package.json README.md ./dist",
