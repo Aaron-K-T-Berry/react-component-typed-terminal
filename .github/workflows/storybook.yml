@@ -13,11 +13,11 @@ jobs:
           persist-credentials: false
 
       - name: Install and Build 🔧
-        run: | # Install npm packages and build the Storybook files
+        run: |
           yarn
 
       - name: Deploy 🚀
-        run: | # Install npm packages and build the Storybook files
-          yarn run deploy-storybook --ci
+        run: |
+          yarn run predeploy deploy-storybook
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}

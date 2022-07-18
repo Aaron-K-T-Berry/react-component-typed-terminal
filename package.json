@@ -5,12 +5,15 @@
   "repository": "https://github.com/Aaron-K-T-Berry/react-component-typed-terminal.git",
   "author": "Aaron-K-T-Berry <aaron.abm@gmail.com>",
   "license": "MIT",
+  "homepage": "http://Aaron-K-T-Berry/react-component-typed-terminal",
   "scripts": {
     "clean": "rm -rf dist",
     "build": "yarn run clean && tsc && cp package.json README.md ./dist",
     "publish": "yarn run publish",
     "storybook": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
-    "deploy-storybook": "storybook-to-ghpages"
+    "predeploy": "yarn run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
@@ -28,10 +31,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^6.5.9",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "gh-pages": "^4.0.0"
   },
   "dependencies": {
-    "@storybook/storybook-deployer": "^2.8.11",
     "typed.js": "^2.0.12"
   }
 }
