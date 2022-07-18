@@ -10,7 +10,7 @@
     "build": "yarn run clean && tsc && cp package.json README.md ./dist",
     "publish": "yarn run publish",
     "storybook": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
-    "build-storybook": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook -o docs"
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",

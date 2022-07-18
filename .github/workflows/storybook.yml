@@ -18,6 +18,6 @@ jobs:
 
       - name: Deploy 🚀
         run: | # Install npm packages and build the Storybook files
-          yarn run deploy-storybook -- --ci
+          yarn run deploy-storybook --ci
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
