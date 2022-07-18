@@ -12,13 +12,18 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install and Build 🔧
+      - name: Install 🔧
         run: |
           yarn
 
-      - name: Deploy 🚀
+      - name: Build 🏗
         run: |
-          yarn run predeploy
-          yarn run deploy-storybook
+          yarn run build-storybook
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          branch: gh-pages
+          folder: storybook-static
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
