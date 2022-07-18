@@ -4,7 +4,7 @@ A react component for displaying a typing animation using [TypedJs](https://gith
 
 ![react-component-typed-terminal demo](./docs/typed-terminal-example.gif)
 
-You can interact with the component on the following storybook site [here](https://aaron-k-t-berry.github.io/react-component-typed-terminal/).
+You can interact with the component on the following storybook site [here](https://aaron-k-t-berry.github.io/react-component-typed-terminal/?path=/story/typedterminal--basic).
 
 ## Installation
 
@@ -20,7 +20,7 @@ You can import and use the component in your react app.
 
 ```
 
-The following parameters are available for the component.
+The following parameters are available for the `TypedTerminal` component.
 
 | Name         | Description                                                               | Default          |
 | ------------ | ------------------------------------------------------------------------- | ---------------- |
@@ -29,7 +29,17 @@ The following parameters are available for the component.
 | typedJsProps | Any TypedJs props that will be spread to its constructor when initialized | `{}`             |
 | terminalData | Data used to construct the terminal output                                | `[]`             |
 
-You can also see the parameters in use in the storybook site [here](https://aaron-k-t-berry.github.io/react-component-typed-terminal/).
+You can also see the parameters in use in the storybook site [here](https://aaron-k-t-berry.github.io/react-component-typed-terminal/?path=/story/typedterminal--basic).
+
+The following parameters are available for the `TerminalLine` component.
+
+| Name         | Description                                                               | Default          |
+| ------------ | ------------------------------------------------------------------------- | ---------------- |
+| hidden       | Wether to show the line or not                                            | `false`          |
+| promptText   | Terminal prompt text to show for each command                             | `user@local:~ $` |
+| typedJsProps | Any TypedJs props that will be spread to its constructor when initialized | `{}`             |
+
+You can also see the parameters in use in the storybook site [here](https://aaron-k-t-berry.github.io/react-component-typed-terminal/?path=/story/terminalline--basic).
 
 ## Local development with storybook
 
