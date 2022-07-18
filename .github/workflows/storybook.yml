@@ -18,6 +18,7 @@ jobs:
 
       - name: Deploy 🚀
         run: |
-          yarn run predeploy deploy-storybook
+          yarn run predeploy
+          yarn run deploy-storybook
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
