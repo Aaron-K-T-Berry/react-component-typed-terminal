@@ -16,7 +16,30 @@ yarn add react-component-typed-terminal
 
 You can import and use the component in your react app.
 
-```typescript
+```jsx
+import React from "react";
+import { TypedTerminal } from "react-component-typed-terminal";
+
+const typedJsProps = {
+    loop: false,
+    typeSpeed: 40,
+    showCursor: false,
+}
+
+const terminalData = [
+    {
+      command: "ls -a ./folder-1",
+      results: ["file 1", "file 2", "file 3", "file 4"],
+    },
+    {
+      command: "ls -a ./folder-2",
+      results: ["file 1", "file 2", "file 3", "file 4"],
+    },
+]
+
+const App = () => {
+    return <TypedTerminal typedJsProps={typedJsProps} terminalData={terminalData}>
+}
 
 ```
 
