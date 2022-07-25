@@ -1,6 +1,5 @@
 {
   "name": "react-component-typed-terminal",
-  "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/Aaron-K-T-Berry/react-component-typed-terminal.git",
@@ -9,7 +8,7 @@
   "scripts": {
     "commit": "./node_modules/.bin/git-cz",
     "clean": "rm -rf dist",
-    "build": "yarn run clean && tsc && cp package.json README.md ./dist",
+    "build": "yarn run clean && tsc && cp package.json README.md ./src/styles.css ./dist",
     "storybook": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
     "predeploy": "yarn run build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
