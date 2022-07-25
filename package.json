@@ -7,6 +7,7 @@
   "author": "Aaron-K-T-Berry <aaron.abm@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "commit": "./node_modules/.bin/git-cz",
     "clean": "rm -rf dist",
     "build": "yarn run clean && tsc && cp package.json README.md ./dist",
     "storybook": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
@@ -36,7 +37,10 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^8.0.3",
     "semantic-release": "^18.0.1",
-    "semantic-release-cli": "^5.4.4"
+    "semantic-release-cli": "^5.4.4",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^3.1.0"
   },
   "dependencies": {
     "typed.js": "^2.0.12"
@@ -46,5 +50,13 @@
     "trim-newlines": "^3.0.1",
     "got": "^11.8.5",
     "glob-parent": "^6.0.1"
+  },
+  "husky": {
+    "hooks": {}
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
