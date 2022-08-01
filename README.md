@@ -1,5 +1,5 @@
 # react-component-typed-terminal
-
+ 
 A react component for displaying a typing animation using [TypedJs](https://github.com/mattboldt/typed.js/) to display a terminal like component to display the strings.
 
 ![react-component-typed-terminal demo](./docs/typed-terminal-example.gif)
