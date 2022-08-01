@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import React, { useState, useEffect } from "react";
 import Typed, { TypedOptions } from "typed.js";
 import "./styles.css";
 
@@ -9,7 +8,7 @@ export const TypedTerminal: React.FunctionComponent<{
   promptText: string;
   typedJsProps?: TypedOptions | {};
 }> = (props) => {
-  const [animationState, setAnimationState] = React.useState(
+  const [animationState, setAnimationState] = useState<boolean[]>(
     props.terminalData.map((item, index) => (index == 0 ? true : false))
   );
 
@@ -68,7 +67,7 @@ export const TerminalLine: React.FunctionComponent<{
   // Create reference to store the Typed instance itself
   const typed = React.useRef(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!props.hidden) {
       if (!typed.current) {
         // elRef refers to the <span> rendered below
@@ -77,13 +76,6 @@ export const TerminalLine: React.FunctionComponent<{
           props.typedJsProps ?? {}
         );
       }
-
-      return () => {
-        if (typed.current) {
-          // Make sure to destroy Typed instance during cleanup to prevent memory leaks
-          (typed.current as Typed).destroy();
-        }
-      };
     }
   }, [props.hidden]);
 
