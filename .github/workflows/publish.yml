@@ -17,7 +17,7 @@ jobs:
 
       - name: Install peer dependencies 🔧
         run: |
-          yarn react react-dom typed.js
+          yarn add react react-dom typed.js
 
       - name: Install 🔧
         run: |
