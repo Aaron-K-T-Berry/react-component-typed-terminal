@@ -64,6 +64,19 @@ The following parameters are available for the `TerminalLine` component.
 
 You can also see the parameters in use in the storybook site [here](https://aaron-k-t-berry.github.io/react-component-typed-terminal/?path=/story/terminalline--basic).
 
+## Development
+
+Requires Node.js 18+.
+
+```bash
+yarn install
+yarn typecheck
+yarn test
+yarn build
+```
+
+Use `yarn test:watch` while iterating, or `yarn test:coverage` to enforce coverage thresholds.
+
 ## Local development with storybook
 
 This repo includes storybook to allow the component to be loaded locally and to view code changes as you make them to the local files.
@@ -73,3 +86,9 @@ yarn storybook
 ```
 
 Once the server is running the storybook will be available at localhost:8080.
+
+## CI
+
+Pull requests and pushes to `master` run the **CI** workflow, which typechecks, runs unit tests with coverage, builds the library, and builds Storybook.
+
+To keep quality gates enforced before merge, enable branch protection on `master` in GitHub and require the **CI** status check.
