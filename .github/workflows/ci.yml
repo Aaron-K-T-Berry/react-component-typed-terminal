@@ -1,19 +1,20 @@
-name: Build and publish project
+name: CI
 
 on:
+  pull_request:
   push:
     branches:
       - master
 
 concurrency:
-  group: publish-${{ github.ref }}
-  cancel-in-progress: false
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  release:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,10 +29,14 @@ jobs:
       - name: Install
         run: yarn install --frozen-lockfile
 
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Test
+        run: yarn test:coverage
+
       - name: Build
         run: yarn build
 
-      - name: Release
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn run publish
+      - name: Build Storybook
+        run: yarn build-storybook
