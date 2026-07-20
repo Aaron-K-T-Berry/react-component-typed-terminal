@@ -4,10 +4,11 @@
     "jsx": "react",
     "declaration": true,
     "esModuleInterop": true,
+    "rootDir": "./src",
     "outDir": "dist",
     "target": "es6",
     "module": "es6",
-    "moduleResolution": "node"
+    "moduleResolution": "bundler"
   },
   "include": ["src"],
   "exclude": ["src/*.stories.tsx", "src/**/*.test.tsx", "src/test/**"]
