@@ -33,8 +33,8 @@ importers:
         specifier: ^7.6.20
         version: 7.6.24
       '@storybook/addon-links':
-        specifier: ^7.6.20
-        version: 7.6.24(react@18.3.1)
+        specifier: ^8.1.11
+        version: 8.1.11(react@18.3.1)
       '@storybook/react':
         specifier: ^7.6.20
         version: 7.6.24(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)
@@ -1870,10 +1870,10 @@ packages:
   '@storybook/addon-interactions@7.6.24':
     resolution: {integrity: sha512-0kRpExtg0hgGgLmfNAx5C593DasUxdTDQM0smrNXJxYo/le0C8/bAt/5UaAhBafDqcedQ3yxYbajWIH5Zhugcw==}
 
-  '@storybook/addon-links@7.6.24':
-    resolution: {integrity: sha512-QyLNM62kMANQrwbYufvOyCyIDUrL56WM6PnAg19vF1ePeY8Qc1je8ajqW1xsVXJ/lZZMzmrpfMF2lDf49Fs8OQ==}
+  '@storybook/addon-links@8.1.11':
+    resolution: {integrity: sha512-HlV2RQSrZyi+55W1B1a9eWNuJdNpWx0g3j7s2arNlNmbd6/kfWAp84axBstI1tL0nW4svut7bWlCsMSOIden+A==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
     peerDependenciesMeta:
       react:
         optional: true
@@ -9073,7 +9073,7 @@ snapshots:
       polished: 4.3.1
       ts-dedent: 2.3.0
 
-  '@storybook/addon-links@7.6.24(react@18.3.1)':
+  '@storybook/addon-links@8.1.11(react@18.3.1)':
     dependencies:
       '@storybook/csf': 0.1.13
       '@storybook/global': 5.0.0

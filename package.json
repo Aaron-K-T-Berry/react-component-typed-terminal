@@ -31,7 +31,7 @@
     "@semantic-release/npm": "^9.0.2",
     "@storybook/addon-essentials": "^7.6.20",
     "@storybook/addon-interactions": "^7.6.20",
-    "@storybook/addon-links": "^7.6.20",
+    "@storybook/addon-links": "^8.1.11",
     "@storybook/react": "^7.6.20",
     "@storybook/react-webpack5": "^7.6.20",
     "@storybook/testing-library": "^0.2.2",
