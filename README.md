@@ -66,7 +66,7 @@ You can also see the parameters in use in the storybook site [here](https://aaro
 
 ## Development
 
-Requires Node.js 22+ and [pnpm](https://pnpm.io/).
+Requires Node.js 24+ and [pnpm](https://pnpm.io/).
 
 ```bash
 pnpm install
