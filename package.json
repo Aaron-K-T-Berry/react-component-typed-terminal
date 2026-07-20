@@ -5,43 +5,43 @@
   "repository": "https://github.com/Aaron-K-T-Berry/react-component-typed-terminal.git",
   "author": "Aaron-K-T-Berry <aaron.abm@gmail.com>",
   "license": "MIT",
+  "packageManager": "pnpm@9.15.9",
   "engines": {
-    "node": ">=18"
+    "node": ">=24"
   },
   "scripts": {
     "commit": "./node_modules/.bin/git-cz",
     "clean": "rm -rf dist",
-    "build": "yarn run clean && tsc && cp package.json README.md ./src/styles.css ./dist",
+    "build": "pnpm run clean && tsc && cp package.json README.md ./src/styles.css ./dist",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "storybook": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
-    "predeploy": "yarn run build-storybook",
+    "storybook": "storybook dev -p 6006",
+    "predeploy": "pnpm run build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
-    "build-storybook": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
-    "prepublish": "yarn build",
+    "build-storybook": "storybook build",
+    "prepublish": "pnpm run build",
     "publish": "semantic-release"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
+    "@babel/preset-typescript": "^7.24.0",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.2",
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/builder-webpack4": "^6.5.16",
-    "@storybook/manager-webpack4": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/addon-essentials": "^7.6.20",
+    "@storybook/addon-interactions": "^7.6.20",
+    "@storybook/addon-links": "^7.6.20",
+    "@storybook/react": "^7.6.20",
+    "@storybook/react-webpack5": "^7.6.20",
+    "@storybook/testing-library": "^0.2.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/react": "^18.0.14",
     "@types/typed.js": "^2.0.9",
-    "@vitest/coverage-v8": "^2.1.9",
+    "@vitest/coverage-v8": "^3.2.6",
     "babel-loader": "^8.2.5",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
@@ -51,7 +51,7 @@
     "react-dom": "^18.2.0",
     "semantic-release": "^19.0.3",
     "semantic-release-cli": "^5.4.4",
-    "storybook": "^6.5.9",
+    "storybook": "^7.6.20",
     "typed.js": "^2.0.12",
     "typescript": "^4.7.4",
     "vitest": "^3.2.6"
@@ -61,11 +61,13 @@
     "react-dom": "^18.2.0",
     "typed.js": "^2.0.12"
   },
-  "resolutions": {
-    "trim": "^0.0.3",
-    "trim-newlines": "^3.0.1",
-    "got": "^11.8.5",
-    "glob-parent": "^6.0.1"
+  "pnpm": {
+    "overrides": {
+      "trim": "^0.0.3",
+      "trim-newlines": "^3.0.1",
+      "got": "^11.8.5",
+      "glob-parent": "^6.0.1"
+    }
   },
   "husky": {
     "hooks": {}
