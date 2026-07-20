@@ -3,6 +3,7 @@ module.exports = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
+    "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
@@ -14,11 +15,4 @@ module.exports = {
   docs: {
     autodocs: "tag"
   },
-  babel: async (options) => ({
-    ...options,
-    presets: [
-      ...(options.presets || []),
-      "@babel/preset-typescript"
-    ],
-  }),
 }
