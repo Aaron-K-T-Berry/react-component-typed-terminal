@@ -5,22 +5,23 @@
   "repository": "https://github.com/Aaron-K-T-Berry/react-component-typed-terminal.git",
   "author": "Aaron-K-T-Berry <aaron.abm@gmail.com>",
   "license": "MIT",
+  "packageManager": "pnpm@9.15.9",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "scripts": {
     "commit": "./node_modules/.bin/git-cz",
     "clean": "rm -rf dist",
-    "build": "yarn run clean && tsc && cp package.json README.md ./src/styles.css ./dist",
+    "build": "pnpm run clean && tsc && cp package.json README.md ./src/styles.css ./dist",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
-    "predeploy": "yarn run build-storybook",
+    "predeploy": "pnpm run build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
     "build-storybook": "storybook build",
-    "prepublish": "yarn build",
+    "prepublish": "pnpm run build",
     "publish": "semantic-release"
   },
   "devDependencies": {
@@ -40,7 +41,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/react": "^18.0.14",
     "@types/typed.js": "^2.0.9",
-    "@vitest/coverage-v8": "^2.1.9",
+    "@vitest/coverage-v8": "^3.2.6",
     "babel-loader": "^8.2.5",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
@@ -60,11 +61,13 @@
     "react-dom": "^18.2.0",
     "typed.js": "^2.0.12"
   },
-  "resolutions": {
-    "trim": "^0.0.3",
-    "trim-newlines": "^3.0.1",
-    "got": "^11.8.5",
-    "glob-parent": "^6.0.1"
+  "pnpm": {
+    "overrides": {
+      "trim": "^0.0.3",
+      "trim-newlines": "^3.0.1",
+      "got": "^11.8.5",
+      "glob-parent": "^6.0.1"
+    }
   },
   "husky": {
     "hooks": {}

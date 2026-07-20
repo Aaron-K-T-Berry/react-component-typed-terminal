@@ -9,7 +9,7 @@ You can interact with the component on the following storybook site [here](https
 ## Installation
 
 ```bash
-yarn add react-component-typed-terminal
+pnpm add react-component-typed-terminal
 ```
 
 ## Usage
@@ -66,23 +66,23 @@ You can also see the parameters in use in the storybook site [here](https://aaro
 
 ## Development
 
-Requires Node.js 18+.
+Requires Node.js 22+ and [pnpm](https://pnpm.io/).
 
 ```bash
-yarn install
-yarn typecheck
-yarn test
-yarn build
+pnpm install
+pnpm typecheck
+pnpm test
+pnpm build
 ```
 
-Use `yarn test:watch` while iterating, or `yarn test:coverage` to enforce coverage thresholds.
+Use `pnpm test:watch` while iterating, or `pnpm test:coverage` to enforce coverage thresholds.
 
 ## Local development with storybook
 
 This repo includes storybook to allow the component to be loaded locally and to view code changes as you make them to the local files.
 
 ```bash
-yarn storybook
+pnpm storybook
 ```
 
 Once the server is running the storybook will be available at localhost:8080.
