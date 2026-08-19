@@ -3,4 +3,4 @@ storybook-static
 dist
 docs-build
 coverage
-
+.pnpm-store
