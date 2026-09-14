@@ -50,7 +50,7 @@
     "storybook": "^8.6.18",
     "typed.js": "^2.0.12",
     "typescript": "^7.0.2",
-    "vitest": "^3.2.6"
+    "vitest": "^4.1.11"
   },
   "peerDependencies": {
     "react": "^18.2.0",
