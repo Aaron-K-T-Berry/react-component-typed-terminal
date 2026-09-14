@@ -3,20 +3,25 @@ import Typed, { TypedOptions } from "typed.js";
 import "./styles.css";
 
 export const TypedTerminal: React.FunctionComponent<{
-  title: string;
-  terminalData: { command: string; results: string[] }[];
-  promptText: string;
+  title?: string;
+  terminalData?: { command: string; results: string[] }[];
+  promptText?: string;
   typedJsProps?: TypedOptions | {};
-}> = (props) => {
+}> = ({
+  title = "Typed Terminal",
+  terminalData = [],
+  promptText = "user@local:~ $",
+  typedJsProps = {},
+}) => {
   const [animationState, setAnimationState] = useState<boolean[]>(
-    props.terminalData.map((item, index) => (index == 0 ? true : false))
+    terminalData.map((_item, index) => (index == 0 ? true : false))
   );
 
   return (
     <div className={"TerminalWrapper"}>
-      <div className={"TerminalTitle"}>{props.title}</div>
+      <div className={"TerminalTitle"}>{title}</div>
       <div className={"TerminalBody"}>
-        {props.terminalData.map((item, index) => {
+        {terminalData.map((item, index) => {
           const generateKey = () => {
             return `${item.command.toLowerCase().replace(" ", "")}_${index}`;
           };
@@ -24,7 +29,7 @@ export const TypedTerminal: React.FunctionComponent<{
             <TerminalLine
               key={generateKey()}
               hidden={!animationState[index]}
-              promptText={props.promptText}
+              promptText={promptText}
               typedJsProps={{
                 // Combine the command and results into a single string separated
                 // by new lines to get the effect of some terminal output
@@ -38,7 +43,7 @@ export const TypedTerminal: React.FunctionComponent<{
                 loop: false,
                 typeSpeed: 40,
                 showCursor: false,
-                ...props.typedJsProps,
+                ...typedJsProps,
               }}
             />
           );
@@ -48,48 +53,36 @@ export const TypedTerminal: React.FunctionComponent<{
   );
 };
 
-TypedTerminal.defaultProps = {
-  title: "Typed Terminal",
-  terminalData: [],
-  promptText: "user@local:~ $",
-  typedJsProps: {},
-};
-
 export default TypedTerminal;
 
 export const TerminalLine: React.FunctionComponent<{
   promptText: string;
   hidden?: boolean;
   typedJsProps?: TypedOptions | {};
-}> = (props) => {
+}> = ({ promptText, hidden = false, typedJsProps = {} }) => {
   // Create reference to store the DOM element containing the animation
   const targetEl = React.useRef(null);
   // Create reference to store the Typed instance itself
   const typed = React.useRef(null);
 
   useEffect(() => {
-    if (!props.hidden) {
+    if (!hidden) {
       if (!typed.current) {
         // elRef refers to the <span> rendered below
         (typed.current as unknown as Typed) = new Typed(
           targetEl.current as unknown as Element,
-          props.typedJsProps ?? {}
+          typedJsProps
         );
       }
     }
-  }, [props.hidden]);
+  }, [hidden]);
 
   return (
     <div className={"TerminalLine"}>
-      <span className={"TerminalPrompt"} hidden={props.hidden}>
-        {props.promptText + " "}
+      <span className={"TerminalPrompt"} hidden={hidden}>
+        {promptText + " "}
       </span>
       <span className={"TerminalResults"} ref={targetEl} />
     </div>
   );
-};
-
-TerminalLine.defaultProps = {
-  hidden: false,
-  typedJsProps: {},
 };
