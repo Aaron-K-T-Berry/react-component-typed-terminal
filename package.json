@@ -48,14 +48,14 @@
     "react-dom": "^19.3.0",
     "semantic-release": "^25.0.9",
     "storybook": "^8.6.18",
-    "typed.js": "^2.0.12",
+    "typed.js": "^3.0.0",
     "typescript": "^7.0.2",
     "vitest": "^4.1.11"
   },
   "peerDependencies": {
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "typed.js": "^2.0.12"
+    "typed.js": "^3.0.0"
   },
   "pnpm": {
     "overrides": {
